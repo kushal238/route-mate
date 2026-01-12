@@ -1,0 +1,9 @@
+# Ignore everything at root except mobile
+/*
+!/mobile
+
+# System directories that cause permission errors
+.Trash
+*.Trash*
+.DS_Store
+

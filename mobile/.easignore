@@ -1,0 +1,28 @@
+# Ignore system directories that might cause permission errors
+.Trash
+*.Trash*
+
+# Node modules and dependencies
+node_modules
+.expo
+.expo-shared
+
+# Build artifacts
+dist
+web-build
+android
+ios
+
+# IDE and system files
+.DS_Store
+.vscode
+.idea
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env*.local
+
