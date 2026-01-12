@@ -1,8 +1,8 @@
-# 🚍 BusTracker - Address-to-Address Bus Routing for Hyderabad
+# BusTracker - Address-to-Address Bus Routing for Hyderabad
 
 A mobile app that finds bus routes between any two addresses in Hyderabad, including walking directions and multi-leg journeys with transfers.
 
-## ✨ Features
+## Features
 
 - **Address-to-Address Routing**: Enter any two addresses, not just bus stations
 - **Multi-Modal Directions**: Walking + Bus + Transfers all in one route
@@ -11,25 +11,8 @@ A mobile app that finds bus routes between any two addresses in Hyderabad, inclu
 - **Step-by-Step Directions**: Clear instructions for each segment
 - **Hyderabad Focused**: Optimized for Hyderabad's bus network
 
-## 🏗️ Architecture
 
-```
-BusTracker/
-├── backend/          # Node.js + Express API
-│   └── src/
-│       ├── services/    # Google Maps integration
-│       ├── controllers/ # Request handlers
-│       └── routes/      # API endpoints
-│
-└── mobile/           # React Native + Expo app
-    └── src/
-        ├── screens/     # UI screens
-        ├── components/  # Reusable components
-        ├── services/    # API client
-        └── navigation/  # Navigation setup
-```
-
-## 📋 Prerequisites
+## Prerequisites
 
 1. **Node.js** (v18 or higher)
 2. **npm** or **yarn**
@@ -41,7 +24,7 @@ BusTracker/
    - Billing enabled
 4. **Expo Go app** on your phone (for testing)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Backend Setup
 
@@ -86,7 +69,7 @@ npx expo start
 2. Scan the QR code shown in the terminal
 3. The app will load on your phone!
 
-## 📱 How to Use
+## How to Use
 
 1. **Enter Addresses**:
    - Type starting point in "From" field
@@ -111,7 +94,7 @@ npx expo start
    - Bus numbers, stops, and number of stops
    - Timing for each segment
 
-## 🔑 Configuration
+## Configuration
 
 ### Backend (.env)
 
@@ -142,153 +125,3 @@ For maps to work on Android, add your API key to `mobile/app.json`:
   }
 }
 ```
-
-## 🧪 Testing
-
-### Test Backend API
-
-```bash
-# Health check
-curl http://localhost:3000/api/health
-
-# Get route (replace addresses with real Hyderabad locations)
-curl -X POST http://localhost:3000/api/route \
-  -H "Content-Type: application/json" \
-  -d '{
-    "from": "HITEC City, Hyderabad",
-    "to": "Charminar, Hyderabad"
-  }'
-```
-
-### Test Cases for Hyderabad
-
-Try these popular routes:
-1. **HITEC City** → **Charminar** (Tech hub to old city)
-2. **Secunderabad Railway Station** → **Gachibowli** (North to West)
-3. **Banjara Hills** → **LB Nagar** (Central to Southeast)
-4. **Ameerpet** → **ECIL** (Metro corridor)
-5. **Madhapur** → **Dilsukhnagar** (IT area to shopping hub)
-
-## 📊 API Endpoints
-
-### POST /api/route
-Get transit routes between two locations.
-
-**Request:**
-```json
-{
-  "from": "HITEC City, Hyderabad",
-  "to": "Charminar, Hyderabad",
-  "mode": "transit"
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "routes": [...],
-  "from": {...},
-  "to": {...}
-}
-```
-
-### GET /api/places/autocomplete?input=...
-Get place suggestions for autocomplete.
-
-### GET /api/geocode?address=...
-Convert address to coordinates.
-
-### GET /api/health
-Health check endpoint.
-
-## 💰 Cost Estimate
-
-With Google's 70% discount for Indian developers:
-
-- **Directions API**: ~₹0.12 per request
-- **Geocoding API**: ~₹0.12 per request  
-- **Places Autocomplete**: ~₹0.07 per request
-- **Free Monthly Credit**: ₹16,000 ($200)
-
-**For 1000 users making 5 routes each:**
-- 5000 direction requests = ~₹600
-- 10000 geocoding requests = ~₹1200
-- 20000 autocomplete requests = ~₹1400
-- **Total**: ~₹3200/month (covered by free credit!)
-
-## 🐛 Troubleshooting
-
-### "No routes found"
-- Verify addresses are in Hyderabad
-- Check that Google Maps has bus data for those locations
-- Try major landmarks instead of specific addresses
-
-### "API key not configured"
-- Make sure you've added your API key to `backend/.env`
-- Restart the backend server after updating .env
-
-### "Cannot connect to server"
-- Check backend is running (`npm run dev` in backend folder)
-- Verify API_BASE_URL in `mobile/src/services/api.ts` has correct IP
-- Make sure phone and computer are on same WiFi network
-
-### Location permission denied
-- Go to phone Settings → Apps → Expo Go → Permissions
-- Enable Location permission
-
-### App crashes on Android
-- Make sure you've added Google Maps API key to `app.json`
-- The key must have "Maps SDK for Android" enabled
-
-## 📈 Future Enhancements
-
-- [ ] Map view with route overlay
-- [ ] Real-time bus tracking
-- [ ] Save favorite routes
-- [ ] Offline mode with cached routes
-- [ ] Fare estimation
-- [ ] Departure time scheduling
-- [ ] Multiple cities support
-- [ ] Share routes with friends
-
-## 🛠️ Tech Stack
-
-**Backend:**
-- Node.js + Express + TypeScript
-- Google Maps Platform APIs
-- Environment-based configuration
-
-**Mobile:**
-- React Native + Expo
-- React Navigation
-- React Native Paper (UI components)
-- Axios (API calls)
-- Expo Location (GPS)
-
-## 📄 License
-
-MIT License - feel free to use this for your projects!
-
-## 🤝 Contributing
-
-This is an MVP. Contributions welcome! Areas for improvement:
-- Better error handling
-- Caching layer
-- Real-time tracking integration
-- UI/UX enhancements
-- Support for more cities
-
-## 📞 Support
-
-For issues or questions:
-1. Check the Troubleshooting section above
-2. Verify your Google Maps API key is properly configured
-3. Ensure all required APIs are enabled in Google Cloud Console
-
-## 🎉 Credits
-
-Built with ❤️ for Hyderabad commuters
-
-Powered by Google Maps Platform
-
