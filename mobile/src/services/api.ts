@@ -2,9 +2,9 @@ import axios from 'axios';
 import { RouteResponse, PlacePrediction, Coordinates } from '../types';
 
 // TODO: Update this to your backend URL
-// For local development, use your computer's IP address
-// Find it with: ipconfig getifaddr en0 (Mac) or ipconfig (Windows)
-const API_BASE_URL = 'http://192.168.29.114:3000/api'; // Your actual IP
+// For Android emulator: use 10.0.2.2 to reach host machine
+// For physical device: use your Mac's IP (get with: ipconfig getifaddr en0)
+const API_BASE_URL = 'http://10.0.2.2:3000/api'; // Android emulator special IP
 
 const api = axios.create({
   baseURL: API_BASE_URL,
